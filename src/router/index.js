@@ -1,19 +1,47 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router"
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    { path: '/', redirect: '/hamburguesas' },
-    { path: '/hamburguesas', component: { render: () => null } },
-    { path: '/perros', component: { render: () => null } },
-    { path: '/pizzas', component: { render: () => null } },
-    { path: '/bebidas', component: { render: () => null } },
-    { path: '/postres', component: { render: () => null } },
-    { path: '/promociones', component: { render: () => null } },
-    { path: '/nosotros', component: { render: () => null } },
-    { path: '/:pathMatch(.*)*', redirect: '/hamburguesas' },
-  ],
-  scrollBehavior: () => ({ top: 0 }),
+import Hamburguesas from "../views/Hamburguesas.vue"
+import Perros from "../views/Perros.vue"
+import Pizzas from "../views/Pizzas.vue"
+import Bebidas from "../views/Bebidas.vue"
+import Postres from "../views/Postres.vue"
+import Promociones from "../views/Promociones.vue"
+import Nosotros from "../views/Nosotros.vue"
+
+const routes = [
+  {
+    path: "/",
+    component: Hamburguesas,
+  },
+  {
+    path: "/perros",
+    component: Perros,
+  },
+  {
+    path: "/pizzas",
+    component: Pizzas,
+  },
+  {
+    path: "/bebidas",
+    component: Bebidas,
+  },
+  {
+    path: "/postres",
+    component: Postres,
+  },
+  {
+    path: "/promociones",
+    component: Promociones,
+  },
+  {
+    path: "/nosotros",
+    component: Nosotros,
+  },
+]
+
+export const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
 })
 
 export default router
